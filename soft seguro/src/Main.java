@@ -1,17 +1,56 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        Album novoAlbum = new Album();
+        Scanner a = new Scanner(System.in);
+        System.out.println("Digite o gênero do albúm: ");
+        String genero = a.nextLine();
+        novoAlbum.setGenero(genero);
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        Scanner b = new Scanner(System.in);
+        System.out.println("Digite o ano do albúm: ");
+        int ano = b.nextInt();
+        novoAlbum.setAno(ano);
+
+
+        Scanner c = new Scanner(System.in);
+        System.out.println("Digite o nome do albúm: ");
+        String nome = c.nextLine();
+        novoAlbum.setNome(nome);
+
+        Scanner d = new Scanner(System.in);
+        System.out.println("Digite o artista responsável pelo albúm: ");
+        String nomeArtista = d.nextLine();
+        Scanner f = new Scanner(System.in);
+        System.out.println("Digite a idade do artista responsável pelo albúm: ");
+        int idadeArtista = f.nextInt();
+        Pessoa artista = new Pessoa(nomeArtista,idadeArtista);
+        novoAlbum.setArtista(artista);
+
+       ;
+
+        while (true) {
+            ArrayList<Musica> musicas = new ArrayList<Musica>();
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Digite o nome das músicas do albúm (digite parar para sair):");
+            String nomeMusica = scanner.nextLine();
+            if (nomeMusica.equalsIgnoreCase("parar")) {
+                novoAlbum.setMusicas(musicas);
+                novoAlbum.mostraTodosOsDados();
+                break;}
+             else{
+                Musica novaMusica = new Musica(nomeMusica, 400);
+                musicas.add(novaMusica);
+            }
+
+
         }
+
+
     }
-}
+
+    }
+
